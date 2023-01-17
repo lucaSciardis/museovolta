@@ -27,18 +27,10 @@
                 </div>
 
     </nav>
-
     <div class="row">
         <div class="col">
-            <div class="container-fluid text-center">
-                <h1>Orario di Apertura</h1>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="container-fluid text-center">
-                <img src="clock.png" class="rounded" width="160" height="160">
+            <div class="container-fluid text-center p-3">
+                <img src="corradobonfanti.jpg" class="img-fluid" width="400" height="400">
             </div>
         </div>
     </div>
@@ -46,28 +38,24 @@
         <div class="col">
             <div class="container-fluid text-center p-4">
                 <p class="lead">
-                Lunedi: 08 - 18 
+                    Nel periodo giovanile trascorso tra lo sport praticato a livello agonistico, pattinaggio, volley,
+                    calcio e l’impegno sociale attraverso il percorso formativo dello scoutismo dell’Associazione Guide
+                    e Scout Cattolici Italiani.
 
-                </p>
-                <p class="lead">
-                Martedi: 08 - 18
-                </p>
-                <p class="lead">
-                Mercoledi: 08 - 18
-                </p>
-                <p class="lead">
-                Giovedi: 08 - 18
-                </p>
-                <p class="lead">
-                Venerdi: 08 - 18
-                </p>
-                <p class="lead">
-                Sabato: Chiuso
-                </p>
-                <p class="lead">
-                Domenica: Chiuso
-                </p>
+                    Sono Laureato in Economia, è di professione faccio il bancario.
+
+                    Sono sposato con Giusy, insegnante, ed ho due figli, Tiziano, insegnante, e Isabella laureata in
+                    Giurisprudenza.
+
+                    Nella mia carriera ho svolto diversi ruoli manageriali con competenze territoriali nella Sicilia Sud
+                    Orientale ed in Calabria. Nel 2002 ho conseguito il Master “Corporate Finance” organizzato dalla SDA
+                    Bocconi (School of Management). Nel 2008 ho conseguito il Master “Banking & Financial Diploma”
+                    organizzato dall’ABI (Associazione Bancaria Italiana).
+
+                    Sono donatore AVIS dal 2008.</p>
+
             </div>
         </div>
     </div>
+
 </body>
