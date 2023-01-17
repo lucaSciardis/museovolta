@@ -27,10 +27,47 @@
                 </div>
 
     </nav>
-  
+
+    <div class="row">
+        <div class="col">
+            <div class="container-fluid text-center">
+                <h1>Orario di Apertura</h1>
+            </div>
+        </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <div class="container-fluid text-center">
+                <img src="clock.png" class="rounded" width="160" height="160">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="container-fluid text-center p-4">
+                <p class="lead">
+                Lunedi: 08 - 18 </br>
 
-
-
-
+                </p>
+                <p class="lead">
+                Martedi: 08 - 18
+                </p>
+                <p class="lead">
+                Mercoledi: 08 - 18
+                </p>
+                <p class="lead">
+                Giovedi: 08 - 18
+                </p>
+                <p class="lead">
+                Venerdi: 08 - 18
+                </p>
+                <p class="lead">
+                Sabato: Chiuso
+                </p>
+                <p class="lead">
+                Domenica: Chiuso
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
