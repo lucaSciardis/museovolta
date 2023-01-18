@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid border-bottom">
             <a href="index.php" class="navbar-brand ">
-                <img src="thegroke.png" height="50" alt="Museo Informatico Volta">Museo Informatico Volta
+                <img src="images/thegroke.png" height="50" alt="Museo Informatico Volta">Museo Informatico Volta
             </a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
     <div class="row">
         <div class="col">
             <div class="container-fluid text-center">
-                <img src="clock.png" class="rounded" width="160" height="160">
+                <img src="images/clock.png" class="rounded" width="160" height="160">
             </div>
         </div>
     </div>

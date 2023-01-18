@@ -9,27 +9,67 @@ require_once("db.php");
     <meta charset="utf-8q">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
+
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid border-bottom">
-            <a href="index.php" class="navbar-brand ">
-                <img src="images/thegroke.png" height="50" alt="Museo Informatico Volta">Museo Informatico Volta
-            </a>
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav">
-                    <a href="index.php" class="nav-item nav-link">Home</a>
-                    <a href="contattaci.php" class="nav-item nav-link">Contattaci</a>
-                    <a href="orario.php" class="nav-item nav-link">Orari</a>
-                    <a href="corradobonfanti.php" class="nav-item nav-link">Corrado Bonfanti</a>
-                </div>
-    </nav>
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid border-bottom">
+                    <a href="index.php" class="navbar-brand ">
+                        <img src="images/thegroke.png" height="50" alt="Museo Informatico Volta">Museo Informatico Volta
+                    </a>
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav">
+                            <a href="index.php" class="nav-item nav-link">Home</a>
+                            <a href="contattaci.php" class="nav-item nav-link">Contattaci</a>
+                            <a href="orario.php" class="nav-item nav-link">Orari</a>
+                            <a href="corradobonfanti.php" class="nav-item nav-link">Corrado Bonfanti</a>
+                        </div>
+                    </div>
+            </nav>
+        </div>
+
     </div>
+
+    <div class="middle-box">
+        <div class="md">
+            <div class="input-group rounded p-2 ml-2 ">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <span class="input-group-text border-0" id="search-addon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search bg" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </span>
+
+
+
+            </div>
+            <div class="p-2 ml-2 ">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+
+            </div>
+            <label for="customRange1" class="form-label "></label>
+<input type="range" class="form-range" id="customRange1">
+        </div>
+    </div>
+
+
+
+
+
+
 
     <?php
     $sql = "SELECT* FROM donazione_bonfanti INNER JOIN foto";
@@ -41,7 +81,7 @@ require_once("db.php");
         echo  "</div>
         
         <div class='row'>";
-        for ($i = 0; $i < 4; $i++){
+        for ($i = 0; $i < 4; $i++) {
             echo "<div class='col m-2 p-3'>
           <div class='card' style='width: 18rem;'>
           <img src=" . $percorso . " class='card-img-top' alt=''>
@@ -52,10 +92,11 @@ require_once("db.php");
               '>Visualizza</a>
           </div>
           </div>
-          </div>";}
-          echo "</div>";
+          </div>";
+        }
+        echo "</div>";
     }
-    
+
 
 
     ?>

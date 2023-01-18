@@ -1,0 +1,13 @@
+
+.middle-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.md{
+    width: 30%;
+    align-items: center;
+}
+.input-group-text{
+    background-color: white;
+}
