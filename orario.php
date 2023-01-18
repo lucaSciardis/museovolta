@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
                     <a href="index.php" class="nav-item nav-link">Home</a>
-                    <a href="#" class="nav-item nav-link">Contattaci</a>
+                    <a href="contattaci.php" class="nav-item nav-link">Contattaci</a>
                     <a href="orario.php" class="nav-item nav-link">Orari</a>
                     <a href="corradobonfanti.php" class="nav-item nav-link">Corrado Bonfanti</a>
                 </div>
