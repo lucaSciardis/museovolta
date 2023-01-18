@@ -1,5 +1,37 @@
 <?php
-require_once("db.php");
+/*require_once("db.php");
+if (isset($_GET['search'])) {
+    $search = $_GET["search"];
+    $sql = "SELECT * FROM `donazione_bonfanti` INNER JOIN foto WHERE descrizione LIKE  '$search'";
+    $rec = mysqli_query($db_remoto, $sql);
+    if(mysqli_num_rows($rec)!=0){
+    while ($array = mysqli_fetch_array($rec)) {
+
+        $descrizione = $array['descrizione'];
+        $dimensioni = $array['dimensioni'];
+        $percorso = $array['percorso'];
+
+        echo  "</div>
+         <div class='row'>";
+        for ($i = 0; $i < 4; $i++) {
+            echo "<div class='col m-2 p-3'>
+          <div class='card' style='width: 18rem;'>
+          <img src=" . $percorso . " class='card-img-top' alt=''>
+          <div class='card-body'>
+          <h5 class='card-title'>Nome</h5>
+          <p class='card-text'>" . $descrizione . "</p>
+          <a href='#' class='btn btn-primary'>Visualizza</a>
+          </div>
+          </div>
+          </div>";
+        }
+        echo "</div>";
+    }}
+} else {
+   
+}
+
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +54,8 @@ require_once("db.php");
                     <a href="index.php" class="navbar-brand ">
                         <img src="images/thegroke.png" height="50" alt="Museo Informatico Volta">Museo Informatico Volta
                     </a>
-                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -35,22 +68,19 @@ require_once("db.php");
                     </div>
             </nav>
         </div>
-
     </div>
-
     <div class="middle-box">
         <div class="md">
-            <div class="input-group rounded p-2 ml-2 ">
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                <span class="input-group-text border-0" id="search-addon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search bg" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                    </svg>
-                </span>
+            <form action="index.php" method="get">
+                <div class="input-group rounded p-2 ml-2 ">
+                    <input type="text" name="search" class="form-control rounded" placeholder="Search"
+                        aria-label="Search" aria-describedby="search-addon" />
+                    <span class="input-group-text border-0" id="search-addon">
+                        <button type="submit" class="btn btn-primary">Cerca</button>
+                    </span>
+                </div>
+            </form>
 
-
-
-            </div>
             <div class="p-2 ml-2 ">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Open this select menu</option>
@@ -61,46 +91,34 @@ require_once("db.php");
 
             </div>
             <label for="customRange1" class="form-label "></label>
-<input type="range" class="form-range" id="customRange1">
+            <input type="range" class="form-range" id="customRange1">
         </div>
     </div>
-
-
-
-
-
-
-
     <?php
     $sql = "SELECT* FROM donazione_bonfanti INNER JOIN foto";
     $rec = mysqli_query($db_remoto, $sql);
     while ($array = mysqli_fetch_array($rec)) {
+
         $descrizione = $array['descrizione'];
         $dimensioni = $array['dimensioni'];
         $percorso = $array['percorso'];
-        echo  "</div>
-        
-        <div class='row'>";
+
+        echo  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<div class='row'>";
         for ($i = 0; $i < 4; $i++) {
             echo "<div class='col m-2 p-3'>
           <div class='card' style='width: 18rem;'>
           <img src=" . $percorso . " class='card-img-top' alt=''>
           <div class='card-body'>
-              <h5 class='card-title'>Nome</h5>
-              <p class='card-text'>" . $descrizione . "</p>
-              <a href='#' class='btn btn-primary
-              '>Visualizza</a>
+          <h5 class='card-title'>Nome</h5>
+          <p class='card-text'>" . $descrizione . "</p>
+          <a href='#' class='btn btn-primary'>Visualizza</a>
           </div>
           </div>
           </div>";
         }
         echo "</div>";
     }
-
-
-
     ?>
-
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center  border-top bg-light fixed-bottom">
             <div class="col-md-4 d-flex align-items-center">
@@ -111,7 +129,6 @@ require_once("db.php");
                 </a>
                 <span class="mb-3 mb-md-0 text-muted">&copy; Sciardis Luca Sanchez Martinez Daniele</span>
             </div>
-
             <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
                 <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
                             <use xlink:href="#twitter" />
