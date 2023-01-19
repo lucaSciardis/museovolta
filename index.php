@@ -1,6 +1,6 @@
 <?php
-/*require_once("db.php");
-if (isset($_GET['search'])) {
+require_once("db.php");
+/*if (isset($_GET['search'])) {
     $search = $_GET["search"];
     $sql = "SELECT * FROM `donazione_bonfanti` INNER JOIN foto WHERE descrizione LIKE  '$search'";
     $rec = mysqli_query($db_remoto, $sql);
@@ -95,29 +95,33 @@ if (isset($_GET['search'])) {
         </div>
     </div>
     <?php
-    $sql = "SELECT* FROM donazione_bonfanti INNER JOIN foto";
+    $sql = "SELECT * FROM donazione_bonfanti INNER JOIN foto";
     $rec = mysqli_query($db_remoto, $sql);
+    echo  "<div class='row'>";
+    
     while ($array = mysqli_fetch_array($rec)) {
+        $page_limit = 10;
+        $page = (isset($_GET['page']) && $_GET['page'] > 0) ? intval($_GET['page']) : 1;
+        $offset = ($page > 1) ? ($page_limit * ($page - 1)) : 0;
+
+
 
         $descrizione = $array['descrizione'];
         $dimensioni = $array['dimensioni'];
         $percorso = $array['percorso'];
-
-        echo  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<div class='row'>";
-        for ($i = 0; $i < 4; $i++) {
-            echo "<div class='col m-2 p-3'>
-          <div class='card' style='width: 18rem;'>
-          <img src=" . $percorso . " class='card-img-top' alt=''>
-          <div class='card-body'>
-          <h5 class='card-title'>Nome</h5>
-          <p class='card-text'>" . $descrizione . "</p>
-          <a href='#' class='btn btn-primary'>Visualizza</a>
-          </div>
-          </div>
-          </div>";
+        echo "<div class='col m-2 p-3 d-flex align-items-stretch'>
+        <div class='card' style='width: 18rem;'>
+        <img src=" . $percorso . " class='card-img-top' alt=''>
+        <div class='card-body d-flex flex-column'>
+        <h5 class='card-title'>Nome</h5>
+        <p class='card-text'>" . $descrizione . "</p>
+        <a href='#' class='btn btn-primary mt-auto align-self-start'>Visualizza</a>
+        </div>
+        </div>
+        </div>";
         }
         echo "</div>";
-    }
+    
     ?>
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center  border-top bg-light fixed-bottom">
