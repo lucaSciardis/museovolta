@@ -95,21 +95,36 @@ require_once("db.php");
         </div>
     </div>
     <?php
-    $sql = "SELECT * FROM donazione_bonfanti INNER JOIN foto";
-    $rec = mysqli_query($db_remoto, $sql);
-    echo  "<div class='row'>";
-    
-    while ($array = mysqli_fetch_array($rec)) {
-        $page_limit = 10;
-        $page = (isset($_GET['page']) && $_GET['page'] > 0) ? intval($_GET['page']) : 1;
-        $offset = ($page > 1) ? ($page_limit * ($page - 1)) : 0;
+
+    function getFAQ($db_remoto)
+    {
+
+        $sql = "SELECT * FROM donazione_bonfanti INNER JOIN foto";
+
+        $currentPage = 1;
+
+        if (isset($_GET['pageNumber'])) {
+            $currentPage = $_GET['pageNumber'];
+        }
+
+        $startPage = ($currentPage - 1) * 8;
+        if ($startPage < 0)
+            $startPage = 0;
+        $href = "index.php";
+        $query = $sql . " limit " . $startPage . "," . 8;
+
+        $rec = mysqli_query($db_remoto, $query);
+        echo "<div class='row'>";
+
+        while ($array = mysqli_fetch_array($rec)) {
+            $questions[] = $array;
 
 
 
-        $descrizione = $array['descrizione'];
-        $dimensioni = $array['dimensioni'];
-        $percorso = $array['percorso'];
-        echo "<div class='col m-2 p-3 d-flex align-items-stretch'>
+            $descrizione = $array['descrizione'];
+            $dimensioni = $array['dimensioni'];
+            $percorso = $array['percorso'];
+            echo "<div class='col m-2 p-3 d-flex align-items-stretch'>
         <div class='card' style='width: 18rem;'>
         <img src=" . $percorso . " class='card-img-top' alt=''>
         <div class='card-body d-flex flex-column'>
@@ -120,9 +135,82 @@ require_once("db.php");
         </div>
         </div>";
         }
-        echo "</div>";
-    
+
+        if (is_array($questions)) {
+            $questions["page_links"] = paginateResults($db_remoto, $sql, $href);
+            return $questions;
+        }
+    }
+
+
+
+    function paginateResults($db, $sql, $href)
+    {
+        $result = mysqli_query($db, $sql);
+        $count = mysqli_num_rows($result);
+        $page_links = pagination($count, $href);
+        return $page_links;
+    }
+    function pagination($count, $href)
+    {
+        $output = '';
+        if (!isset($_REQUEST["pageNumber"]))
+            $_REQUEST["pageNumber"] = 1;
+        if (8 != 0)
+            $pages = ceil($count / 8);
+
+        // if pages exists after loop's lower limit
+        if ($pages > 1) {
+            if (($_REQUEST["pageNumber"] - 3) > 0) {
+                $output = $output . '<a href="' . $href . 'pageNumber=1" class="page">1</a>';
+            }
+            if (($_REQUEST["pageNumber"] - 3) > 1) {
+                $output = $output . '...';
+            }
+
+            // Loop for provides links for 2 pages before and after current page
+            for ($i = ($_REQUEST["pageNumber"] - 2); $i <= ($_REQUEST["pageNumber"] + 2); $i++) {
+                if ($i < 1)
+                    continue;
+                if ($i > $pages)
+                    break;
+                if ($_REQUEST["pageNumber"] == $i)
+                    $output = $output . '<span id=' . $i . ' class="current">' . $i . '</span>';
+                else
+                    $output = $output . '<a href="' . $href . "pageNumber=" . $i . '" class="page">' . $i . '</a>';
+            }
+
+            // if pages exists after loop's upper limit
+            if (($pages - ($_REQUEST["pageNumber"] + 2)) > 1) {
+                $output = $output . '...';
+            }
+            if (($pages - ($_REQUEST["pageNumber"] + 2)) > 0) {
+                if ($_REQUEST["pageNumber"] == $pages)
+                    $output = $output . '<span id=' . ($pages) . ' class="current">' . ($pages) . '</span>';
+                else
+                    $output = $output . '<a href="' . $href . "pageNumber=" . ($pages) . '" class="page">' . ($pages) . '</a>';
+            }
+        }
+        return $output;
+    }
+    $questions = getFAQ($db_remoto);
+if (is_array($questions)) {
+    for ($i = 0; $i < count($questions) - 1; $i ++) {
     ?>
+    <?php
+    }
+    ?>
+    <table border="0" cellpadding="10" cellspacing="1" width="500">
+        <tr class="tableheader">
+            <td colspan="2"><?php echo $questions["page_links"]; ?></td>
+        </tr>
+    </table>
+    <?php
+}
+?>
+    </div>
+
+
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center  border-top bg-light fixed-bottom">
             <div class="col-md-4 d-flex align-items-center">
