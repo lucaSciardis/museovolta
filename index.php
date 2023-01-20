@@ -162,10 +162,10 @@ require_once("db.php");
         // if pages exists after loop's lower limit
         if ($pages > 1) {
             if (($_REQUEST["pageNumber"] - 3) > 0) {
-                $output = $output . '<li class="page-item"><a href="' . $href . 'pageNumber=1" class="page">1</a></li>';
+                $output = $output . '<li class="page-item"><a href="' . $href . 'pageNumber=1" class="page-link">1</a></li>';
             }
             if (($_REQUEST["pageNumber"] - 3) > 1) {
-                $output = $output . '...';
+                $output = $output . '<a class="page-link link-secondary disabled">...</a>';
             }
 
             // Loop for provides links for 2 pages before and after current page
@@ -175,14 +175,14 @@ require_once("db.php");
                 if ($i > $pages)
                     break;
                 if ($_REQUEST["pageNumber"] == $i)
-                    $output = $output . '<p id=' . $i . ' class="current">' . $i . '</p>';
+                    $output = $output . '<li class="page-item"><a class="page-link active" id=' . $i . '>' . $i . '</a></li>';
                 else
                     $output = $output . '<li class="page-item"><a class="page-link" href="' . $href . "pageNumber=" . $i . '" class="page">' . $i . '</a></li>';
             }
 
             // if pages exists after loop's upper limit
             if (($pages - ($_REQUEST["pageNumber"] + 2)) > 1) {
-                $output = $output . '...';
+                $output = $output . '<a class="page-link link-secondary disabled">...</a>';
             }
             if (($pages - ($_REQUEST["pageNumber"] + 2)) > 0) {
                 if ($_REQUEST["pageNumber"] == $pages)
@@ -200,20 +200,20 @@ if (is_array($questions)) {
     <?php
     }
     ?>
-    
-  
 
-    
-    
-    <nav class="nav justify-content-center"aria-label="Page navigation example">
+
+
+
+
+    <nav class="nav justify-content-center" aria-label="Page navigation example">
         <ul class="pagination">
-        
-        <?php     echo $questions["page_links"];
+
+            <?php     echo $questions["page_links"];
  ?>
-          
+
         </ul>
-      </nav>  
-    
+    </nav>
+
     <!--  <table class="table table-bordered">
     <tbody>
     <tr>
@@ -221,8 +221,8 @@ if (is_array($questions)) {
         </tr>
         </tbody>
     </table> -->
-    
- 
+
+
     <?php
 }
 ?>
@@ -230,7 +230,7 @@ if (is_array($questions)) {
 
 
     <div class="container">
-     <!--   <footer class="d-flex flex-wrap justify-content-between align-items-center  border-top bg-light fixed-bottom">
+        <!--   <footer class="d-flex flex-wrap justify-content-between align-items-center  border-top bg-light fixed-bottom">
             <div class="col-md-4 d-flex align-items-center">
                 <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                     <svg class="bi" width="30" height="24">
