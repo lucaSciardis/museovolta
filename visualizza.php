@@ -14,8 +14,9 @@ require_once("db.php");
     <title>Museo Informatico Volta</title>
     <meta charset="utf-8q">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="index.css" rel="stylesheet">
+    <link href="visualizza.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
@@ -43,47 +44,24 @@ require_once("db.php");
             </nav>
         </div>
     </div>
-    <div class="middle-box">
-        <div class="md">
-            <form action="index.php" method="get">
-                <div class="input-group rounded p-2 ml-2 ">
-                    <input type="text" name="search" class="form-control rounded" placeholder="Search"
-                        aria-label="Search" aria-describedby="search-addon" />
-                    <span class="input-group-text border-0" id="search-addon">
-                        <button type="submit" class="btn btn-primary">Cerca</button>
-                    </span>
-                </div>
-            </form>
-
-            <div class="p-2 ml-2 ">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-
-            </div>
-            <label for="customRange1" class="form-label "></label>
-            <input type="range" class="form-range" id="customRange1">
-        </div>
-    </div>, initial-scale=1.0">
-    <title>Document</title>
+    
+    <div class="row-5">
+        <div class="col-md-6 offset-md-3">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner">
+  <div class="carousel-inner" role="listbox"style=" width:100%; height: 500px !important">
     <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="images/thegroke.png" class="d-block  w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="images/tdk.jpg" class="d-bloc w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="images/batman.png" class="d-block  w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -95,7 +73,9 @@ require_once("db.php");
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
+</div>
+</div>
+</div>
     
 </body>
 </html>
