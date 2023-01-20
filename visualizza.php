@@ -46,7 +46,13 @@ require_once("db.php");
         </div>
     </div>
 
-    <div class="row-5">
+    <div class="row">
+        <div class="col">
+            <div class="display-1 text-center">La notte</div>
+        </div>
+    </div>
+
+    <div class="row-5 mt-4">
         <div class="col-md-6 offset-md-3">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -62,7 +68,7 @@ require_once("db.php");
                 </div>
                 <div class="carousel-inner" role="listbox" style=" width:100%; height: 500px !important">
                     <div class="carousel-item active">
-                        <img src="images/thegroke.png" class="d-block  w-100" alt="...">
+                        <img src="images/Buka.jpg" class="d-block  w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                         <img src="images/scary-groke.png" class="d-bloc w-100" alt="...">
@@ -88,5 +94,33 @@ require_once("db.php");
         </div>
     </div>
     </div>
+    <div class="row mt-3">
+        <div class="col">
+        <div class="display-5 text-center">Descrizione</div>
+            
+        </div>
+    </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <p class="lead text-start">
+                The Groke (Swedish name Mårran, Finnish name Mörkö) is a fictional character in the Moomin stories
+                created by Tove Jansson.[1] She appears as a ghost-like, hill-shaped body with two cold staring eyes and
+                a wide row of white shiny teeth. In the book Who Will Comfort Toffle?, it is mentioned that she has a
+                tail, but it has never been seen. Wherever she stands, the ground below her freezes and plants and grass
+                die. She leaves a trace of ice and snow when she walks the ground. Anything that she touches will
+                freeze. On one occasion, she froze a campfire by sitting down on it. She seeks friendship and warmth,
+                but she is declined by everyone and everything, leaving her in her cold cavern on top of the Lonely
+                Mountains.
+
+                On one occasion in a comic, however, she was hailed as a heroine when she, in her constant search for
+                warmth, extinguished a forest wildfire by sitting on it. In another comic, Sniff has made a magical
+                potion with seemingly random effects. In curiosity, he drips a few drops on an ant which then transforms
+                into the Groke. It is never made clear if this is how the Groke came to be, or if the ant transformed to
+                another creature of the same type.
+        </div>
+    </div>
+    </div>
 </body>
+
 </html>
