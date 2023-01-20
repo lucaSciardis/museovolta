@@ -110,7 +110,7 @@ require_once("db.php");
         $startPage = ($currentPage - 1) * 8;
         if ($startPage < 0)
             $startPage = 0;
-        $href = "index.php";
+        $href = "index.php?";
         $query = $sql . " limit " . $startPage . "," . 8;
 
         $rec = mysqli_query($db_remoto, $query);
@@ -130,7 +130,7 @@ require_once("db.php");
         <div class='card-body d-flex flex-column'>
         <h5 class='card-title'>Nome</h5>
         <p class='card-text'>" . $descrizione . "</p>
-        <a href='#' class='btn btn-primary mt-auto align-self-start'>Visualizza</a>
+        <a href='visualizza.php' class='btn btn-primary mt-auto align-self-start'>Visualizza</a>
         </div>
         </div>
         </div>";
@@ -162,7 +162,7 @@ require_once("db.php");
         // if pages exists after loop's lower limit
         if ($pages > 1) {
             if (($_REQUEST["pageNumber"] - 3) > 0) {
-                $output = $output . '<a href="' . $href . 'pageNumber=1" class="page">1</a>';
+                $output = $output . '<li class="page-item"><a href="' . $href . 'pageNumber=1" class="page">1</a></li>';
             }
             if (($_REQUEST["pageNumber"] - 3) > 1) {
                 $output = $output . '...';
@@ -175,9 +175,9 @@ require_once("db.php");
                 if ($i > $pages)
                     break;
                 if ($_REQUEST["pageNumber"] == $i)
-                    $output = $output . '<span id=' . $i . ' class="current">' . $i . '</span>';
+                    $output = $output . '<p id=' . $i . ' class="current">' . $i . '</p>';
                 else
-                    $output = $output . '<a href="' . $href . "pageNumber=" . $i . '" class="page">' . $i . '</a>';
+                    $output = $output . '<li class="page-item"><a class="page-link" href="' . $href . "pageNumber=" . $i . '" class="page">' . $i . '</a></li>';
             }
 
             // if pages exists after loop's upper limit
@@ -186,9 +186,9 @@ require_once("db.php");
             }
             if (($pages - ($_REQUEST["pageNumber"] + 2)) > 0) {
                 if ($_REQUEST["pageNumber"] == $pages)
-                    $output = $output . '<span id=' . ($pages) . ' class="current">' . ($pages) . '</span>';
+                    $output = $output . '<p id=' . ($pages) . ' class="current">' . ($pages) . '</p>';
                 else
-                    $output = $output . '<a href="' . $href . "pageNumber=" . ($pages) . '" class="page">' . ($pages) . '</a>';
+                    $output = $output . '<li class="page-item"> <a class="page-link" href="' . $href . "pageNumber=" . ($pages) . '" >' . ($pages) . '</a></li>';
             }
         }
         return $output;
@@ -200,11 +200,29 @@ if (is_array($questions)) {
     <?php
     }
     ?>
-    <table border="0" cellpadding="10" cellspacing="1" width="500">
-        <tr class="tableheader">
-            <td colspan="2"><?php echo $questions["page_links"]; ?></td>
+    
+  
+
+    
+    
+    <nav class="nav justify-content-center"aria-label="Page navigation example">
+        <ul class="pagination">
+        
+        <?php     echo $questions["page_links"];
+ ?>
+          
+        </ul>
+      </nav>  
+    
+    <!--  <table class="table table-bordered">
+    <tbody>
+    <tr>
+            <td></td>
         </tr>
-    </table>
+        </tbody>
+    </table> -->
+    
+ 
     <?php
 }
 ?>
@@ -212,7 +230,7 @@ if (is_array($questions)) {
 
 
     <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center  border-top bg-light fixed-bottom">
+     <!--   <footer class="d-flex flex-wrap justify-content-between align-items-center  border-top bg-light fixed-bottom">
             <div class="col-md-4 d-flex align-items-center">
                 <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                     <svg class="bi" width="30" height="24">
@@ -232,7 +250,7 @@ if (is_array($questions)) {
                             <use xlink:href="#facebook" />
                         </svg></a></li>
             </ul>
-        </footer>
+        </footer> -->
     </div>
 
 
