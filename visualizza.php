@@ -46,11 +46,17 @@ require_once("db.php");
         </div>
     </div>
 
-    <div class="row">
-        <div class="col">
-            <div class="display-1 text-center">La notte</div>
+
+    <?php 
+    
+    echo "<div class='row'>
+        <div class='col'>
+        <div class='display-1 text-center'></div>
         </div>
-    </div>
+        </div>";
+    
+    ?>
+    
 
     <div class="row-5 mt-4">
         <div class="col-md-6 offset-md-3">

@@ -120,7 +120,7 @@ require_once("db.php");
             $questions[] = $array;
 
 
-
+            $id = $array['id'];
             $descrizione = $array['descrizione'];
             $dimensioni = $array['dimensioni'];
             $percorso = $array['percorso'];
@@ -129,8 +129,8 @@ require_once("db.php");
         <img src=" . $percorso . " class='card-img-top' alt=''>
         <div class='card-body d-flex flex-column'>
         <h5 class='card-title'>Nome</h5>
-        <p class='card-text'>" . $descrizione . "</p>
-        <a href='visualizza.php' class='btn btn-primary mt-auto align-self-start'>Visualizza</a>
+        <p class='card-text'>" . $descrizione  . " </p>
+        <a href='visualizza.php?id=" . $id ."' class='btn btn-primary mt-auto align-self-start'>Visualizza</a>
         </div>
         </div>
         </div>";
